@@ -10,7 +10,7 @@ class Shop extends StatefulWidget {
 class _ShopState extends State<Shop> {
   @override
   Widget build(BuildContext context) {
-    return Center(
+    return const Center(
       child: Text('Shop'),
     );
   }

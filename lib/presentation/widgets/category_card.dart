@@ -58,7 +58,7 @@ class CategoryCard extends StatelessWidget {
                     ),
                   ),
                 ],
-              )
+              ),
             ],
           ),
         ),

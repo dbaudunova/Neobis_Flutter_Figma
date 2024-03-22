@@ -29,43 +29,41 @@ class _BottomNavState extends State<BottomNav> {
         elevation: 0,
         unselectedItemColor: Colors.grey,
         selectedItemColor: Colors.black,
-        selectedLabelStyle: const TextStyle(fontFamily: 'NunitoSansSemiBold'),
-        unselectedLabelStyle: const TextStyle(fontFamily: 'NunitoSansSemiBold'),
+        selectedLabelStyle: const TextStyle(
+          fontFamily: 'NunitoSansSemiBold',
+        ),
+        unselectedLabelStyle: const TextStyle(
+          fontFamily: 'NunitoSansSemiBold',
+        ),
         currentIndex: _selectedIndex,
         onTap: _onItemTapped,
         items: <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            activeIcon: SvgPicture.asset(
-              'assets/home.svg',
-              colorFilter:
-                  const ColorFilter.mode(Colors.black, BlendMode.srcIn),
-            ),
-            icon: SvgPicture.asset(
-              'assets/home.svg',
-              colorFilter: const ColorFilter.mode(Colors.grey, BlendMode.srcIn),
-            ),
-            label: 'Главная',
-          ),
-          BottomNavigationBarItem(
-            activeIcon: SvgPicture.asset(
-              'assets/cart.svg',
-              colorFilter:
-                  const ColorFilter.mode(Colors.black, BlendMode.srcIn),
-            ),
-            icon: SvgPicture.asset('assets/cart.svg'),
-            label: 'Товары',
-          ),
-          BottomNavigationBarItem(
-            icon: SvgPicture.asset('assets/pin.svg'),
-            activeIcon: SvgPicture.asset(
-              'assets/pin.svg',
-              colorFilter:
-                  const ColorFilter.mode(Colors.black, BlendMode.srcIn),
-            ),
-            label: 'Магазин',
-          ),
+          buildBottomNavigationBarItem('assets/home.svg', 'Главная'),
+          buildBottomNavigationBarItem('assets/cart.svg', 'Товары'),
+          buildBottomNavigationBarItem('assets/pin.svg', 'Магазин'),
         ],
       ),
+    );
+  }
+
+  BottomNavigationBarItem buildBottomNavigationBarItem(
+      String svgImage, String label) {
+    return BottomNavigationBarItem(
+      activeIcon: SvgPicture.asset(
+        svgImage,
+        colorFilter: const ColorFilter.mode(
+          Colors.black,
+          BlendMode.srcIn,
+        ),
+      ),
+      icon: SvgPicture.asset(
+        svgImage,
+        colorFilter: const ColorFilter.mode(
+          Colors.grey,
+          BlendMode.srcIn,
+        ),
+      ),
+      label: label,
     );
   }
 }

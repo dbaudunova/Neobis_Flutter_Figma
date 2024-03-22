@@ -28,7 +28,7 @@ class InfoCardItem extends StatelessWidget {
               fontSize: 14,
             ),
           ),
-        )
+        ),
       ],
     );
   }

@@ -7,4 +7,5 @@ class ColorSelect {
   static Color expenseCardColor = const Color(0xFFFFF5F4);
   static Color infoCardColor = const Color(0xFFF6F7F9);
   static Color addCard = const Color(0xFF4A72FF);
+  static Color searchBarColor = const Color(0xFFEDF0F8);
 }

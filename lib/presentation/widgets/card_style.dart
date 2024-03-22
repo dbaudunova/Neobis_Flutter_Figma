@@ -15,29 +15,27 @@ class CardStyle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: Card(
-        elevation: 0,
-        color: color,
-        child: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 16),
-          child: Center(
-            child: Column(
-              children: [
-                SvgPicture.asset(svgImage),
-                Padding(
-                  padding: const EdgeInsets.only(top: 12),
-                  child: Text(
-                    text,
-                    style: const TextStyle(
-                      color: Colors.white,
-                      fontFamily: 'NunitoSansSemiBold',
-                      fontSize: 16,
-                    ),
+    return Card(
+      elevation: 0,
+      color: color,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 16),
+        child: Center(
+          child: Column(
+            children: [
+              SvgPicture.asset(svgImage),
+              Padding(
+                padding: const EdgeInsets.only(top: 12),
+                child: Text(
+                  text,
+                  style: const TextStyle(
+                    color: Colors.white,
+                    fontFamily: 'NunitoSansSemiBold',
+                    fontSize: 16,
                   ),
-                )
-              ],
-            ),
+                ),
+              ),
+            ],
           ),
         ),
       ),

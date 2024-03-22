@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:neobis_flutter_figma/config/color/color.dart';
-
-import '../widgets/app_bar_text.dart';
-import '../widgets/card_style.dart';
-import '../widgets/category_card.dart';
-import '../widgets/info_card_item.dart';
+import 'package:neobis_flutter_figma/presentation/pages/product_selection.dart';
+import 'package:neobis_flutter_figma/presentation/widgets/app_bar_text.dart';
+import 'package:neobis_flutter_figma/presentation/widgets/card_style.dart';
+import 'package:neobis_flutter_figma/presentation/widgets/category_card.dart';
+import 'package:neobis_flutter_figma/presentation/widgets/info_card_item.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -92,7 +92,7 @@ class _HomeState extends State<Home> {
                           labelStyle: TextStyle(
                               color: _selectedChipIndex == index
                                   ? Colors.white
-                                  : Colors.black,
+                                  : Colors.grey,
                               fontFamily: 'NunitoSansSemiBold',
                               fontSize: 12),
                           shape: const StadiumBorder(
@@ -198,16 +198,33 @@ class _HomeState extends State<Home> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  CardStyle(
-                    svgImage: 'assets/plus.svg',
-                    text: 'Добавить',
-                    color: ColorSelect.addCard,
+                  Expanded(
+                    child: GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          PageRouteBuilder(
+                            pageBuilder: (context, animation1, animation2) =>
+                                const ProductSelect(),
+                            transitionDuration: Duration.zero,
+                            reverseTransitionDuration: Duration.zero,
+                          ),
+                        );
+                      },
+                      child: CardStyle(
+                        svgImage: 'assets/plus.svg',
+                        text: 'Добавить',
+                        color: ColorSelect.addCard,
+                      ),
+                    ),
                   ),
-                  const CardStyle(
-                    svgImage: 'assets/plus_cube.svg',
-                    text: 'Продать',
-                    color: Colors.green,
-                  )
+                  const Expanded(
+                    child: CardStyle(
+                      svgImage: 'assets/plus_cube.svg',
+                      text: 'Продать',
+                      color: Colors.green,
+                    ),
+                  ),
                 ],
               ),
             ),

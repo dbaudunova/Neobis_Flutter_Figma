@@ -75,6 +75,9 @@ flutter:
      - assets/file.svg
      - assets/plus.svg
      - assets/plus_cube.svg
+     - assets/settings.svg
+     - assets/scan.svg
+     - assets/search.svg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
