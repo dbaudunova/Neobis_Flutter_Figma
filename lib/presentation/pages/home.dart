@@ -5,6 +5,7 @@ import 'package:neobis_flutter_figma/presentation/pages/product_selection.dart';
 import 'package:neobis_flutter_figma/presentation/widgets/app_bar_text.dart';
 import 'package:neobis_flutter_figma/presentation/widgets/card_style.dart';
 import 'package:neobis_flutter_figma/presentation/widgets/category_card.dart';
+import 'package:neobis_flutter_figma/presentation/widgets/choice_chip.dart';
 import 'package:neobis_flutter_figma/presentation/widgets/info_card_item.dart';
 
 class Home extends StatefulWidget {
@@ -15,14 +16,7 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  int _selectedChipIndex = 0;
   final List<String> _chipList = ["Сегодня", "7 дней", "Месяц"];
-
-  void _onChipSelected(int index) {
-    setState(() {
-      _selectedChipIndex = index;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -79,33 +73,9 @@ class _HomeState extends State<Home> {
                     vertical: 16,
                     horizontal: 16,
                   ),
-                  child: Wrap(
-                    direction: Axis.horizontal,
-                    children: List<Widget>.generate(
-                      3,
-                      (index) {
-                        return ChoiceChip.elevated(
-                          elevation: 0,
-                          showCheckmark: false,
-                          backgroundColor: Colors.white,
-                          selectedColor: Colors.black,
-                          labelStyle: TextStyle(
-                              color: _selectedChipIndex == index
-                                  ? Colors.white
-                                  : Colors.grey,
-                              fontFamily: 'NunitoSansSemiBold',
-                              fontSize: 12),
-                          shape: const StadiumBorder(
-                            side: BorderSide(style: BorderStyle.none),
-                          ),
-                          label: Text(_chipList[index]),
-                          selected: _selectedChipIndex == index,
-                          onSelected: (bool selected) {
-                            _onChipSelected(selected ? index : -1);
-                          },
-                        );
-                      },
-                    ),
+                  child: ChoiceChipStyle(
+                    text: _chipList,
+                    fontSize: 12,
                   ),
                 ),
                 const Spacer(),
