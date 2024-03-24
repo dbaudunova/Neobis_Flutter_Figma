@@ -10,5 +10,4 @@ class ColorSelect {
   static Color searchBarColor = const Color(0xFFEDF0F8);
   static Color dotColor = const Color(0xFF7F56F8);
   static Color buttonColor = const Color(0xFFFFDD2D);
-  static Color dotColor = const Color(0xFF7F56F8);
 }
