@@ -20,6 +20,8 @@ class SpecifyAmount extends StatefulWidget {
 class _SpecifyAmountState extends State<SpecifyAmount> {
   final List<String> _chipList = ["Товар 1", "Товар 2", "Товар 3", "Товар 4"];
 
+
+
   void _navigate(BuildContext context) {
     Navigator.push(
       context,
@@ -36,6 +38,7 @@ class _SpecifyAmountState extends State<SpecifyAmount> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        resizeToAvoidBottomInset: false,
         appBar: AppBar(
           toolbarHeight: 56,
           leading: IconButton(

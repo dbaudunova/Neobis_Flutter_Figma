@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:neobis_flutter_figma/config/color/color.dart';
-import 'package:neobis_flutter_figma/presentation/pages/specify_amount.dart';
 import 'package:neobis_flutter_figma/presentation/widgets/card_text.dart';
 import 'package:neobis_flutter_figma/presentation/widgets/second_row_text.dart';
 
 class CardItem extends StatefulWidget {
-  const CardItem({super.key});
+  const CardItem({
+    super.key,
+    required this.onPressed,
+  });
+
+  final VoidCallback onPressed;
 
   @override
   State<CardItem> createState() => _CardItemState();
@@ -31,7 +35,7 @@ class _CardItemState extends State<CardItem> {
 
   void _showBottomSheet() {
     showModalBottomSheet(
-      backgroundColor: Colors.white,
+        backgroundColor: Colors.white,
         shape: const RoundedRectangleBorder(
           side: BorderSide(color: Colors.grey),
           borderRadius: BorderRadius.vertical(top: Radius.zero),
@@ -44,27 +48,20 @@ class _CardItemState extends State<CardItem> {
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
                   child: ElevatedButton(
                       style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.all(ColorSelect.buttonColor),
-                        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                        backgroundColor:
+                            MaterialStateProperty.all(ColorSelect.buttonColor),
+                        shape:
+                            MaterialStateProperty.all<RoundedRectangleBorder>(
                           RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(12),
                           ),
                         ),
                       ),
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          PageRouteBuilder(
-                            pageBuilder: (context, animation1, animation2) =>
-                            const SpecifyAmount(),
-                            transitionDuration: Duration.zero,
-                            reverseTransitionDuration: Duration.zero,
-                          ),
-                        );
-                      },
+                      onPressed: widget.onPressed,
                       child: const Text(
                         'Выбрать',
                         style: TextStyle(

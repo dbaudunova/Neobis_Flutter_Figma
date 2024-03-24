@@ -78,15 +78,17 @@ class _HomeState extends State<Home> {
                     fontSize: 12,
                   ),
                 ),
-                const Spacer(),
-                const Padding(
-                  padding: EdgeInsets.only(right: 24),
-                  child: Text(
-                    'Календарь',
-                    style: TextStyle(
-                      fontFamily: 'NunitoSansSemiBold',
-                      fontSize: 14,
-                      color: Colors.blue,
+                const Expanded(
+                  child: Padding(
+                    padding: EdgeInsets.only(right: 16),
+                    child: Text(
+                      'Календарь',
+                      textAlign: TextAlign.end,
+                      style: TextStyle(
+                        fontFamily: 'NunitoSansSemiBold',
+                        fontSize: 14,
+                        color: Colors.blue,
+                      ),
                     ),
                   ),
                 ),
