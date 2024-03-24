@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:neobis_flutter_figma/config/color/color.dart';
+import 'package:neobis_flutter_figma/presentation/pages/specify_amount.dart';
 import 'package:neobis_flutter_figma/presentation/widgets/card_text.dart';
 import 'package:neobis_flutter_figma/presentation/widgets/second_row_text.dart';
 
@@ -16,25 +17,73 @@ class _CardItemState extends State<CardItem> {
     'assets/shirt.jpg',
     'assets/hoodie_first.jpg',
     'assets/hoodie_second.jpg',
-    'assets/shirt.jpg',
-    'assets/hoodie_first.jpg',
-    'assets/hoodie_second.jpg',
-    'assets/shirt.jpg',
-    'assets/hoodie_first.jpg',
-    'assets/hoodie_second.jpg',
-    'assets/shirt.jpg'
+    'assets/clothes.jpg',
   ];
 
   void _chooseCheckbox(bool? value, int index) {
     setState(() {
       _isCheckedList[index] = value;
+      if (_isCheckedList[index] ?? false) {
+        _showBottomSheet();
+      }
     });
+  }
+
+  void _showBottomSheet() {
+    showModalBottomSheet(
+      backgroundColor: Colors.white,
+        shape: const RoundedRectangleBorder(
+          side: BorderSide(color: Colors.grey),
+          borderRadius: BorderRadius.vertical(top: Radius.zero),
+        ),
+        barrierColor: Colors.transparent,
+        context: context,
+        builder: (context) {
+          return SizedBox(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
+                  child: ElevatedButton(
+                      style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all(ColorSelect.buttonColor),
+                        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                          RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(12),
+                          ),
+                        ),
+                      ),
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          PageRouteBuilder(
+                            pageBuilder: (context, animation1, animation2) =>
+                            const SpecifyAmount(),
+                            transitionDuration: Duration.zero,
+                            reverseTransitionDuration: Duration.zero,
+                          ),
+                        );
+                      },
+                      child: const Text(
+                        'Выбрать',
+                        style: TextStyle(
+                          fontFamily: 'NunitoSansSemiBold',
+                          fontSize: 16,
+                          color: Colors.black,
+                        ),
+                      )),
+                )
+              ],
+            ),
+          );
+        });
   }
 
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-        itemCount: 10,
+        itemCount: 4,
         itemBuilder: (context, index) {
           return Card(
             surfaceTintColor: Colors.white,

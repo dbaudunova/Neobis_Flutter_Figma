@@ -1,18 +1,16 @@
 import 'package:flutter/material.dart';
 
-class CardText extends StatelessWidget {
-  const CardText({
+class TotalText extends StatelessWidget {
+  const TotalText({
     super.key,
     required this.text,
     required this.font,
-    required this.size,
-    this.textAlign,
+    required this.color,
   });
 
   final String text;
   final String font;
-  final double size;
-  final TextAlign? textAlign;
+  final Color color;
 
   @override
   Widget build(BuildContext context) {
@@ -20,9 +18,9 @@ class CardText extends StatelessWidget {
       text,
       style: TextStyle(
         fontFamily: font,
-        fontSize: size,
+        fontSize: 16,
+        color: color,
       ),
-      textAlign: textAlign,
     );
   }
 }

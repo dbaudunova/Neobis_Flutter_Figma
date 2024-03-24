@@ -30,12 +30,12 @@ class _ProductSelectState extends State<ProductSelect> {
               color: Colors.black,
             ),
           ),
-          toolbarHeight: 80,
+          toolbarHeight: 56,
           centerTitle: true,
           title: const AppBarText(
             text: 'Выбрать товары',
             font: 'NunitoSansBold',
-            size: 20,
+            size: 18,
             color: Colors.black,
           ),
         ),
@@ -62,7 +62,10 @@ class _ProductSelectState extends State<ProductSelect> {
               ],
             ),
             const SizedBox(height: 12),
-            ChoiceChipStyle(text: _chipList, fontSize: 13),
+            ChoiceChipStyle(
+              text: _chipList,
+              fontSize: 13,
+            ),
             const Expanded(
               child: Padding(
                 padding: EdgeInsets.symmetric(

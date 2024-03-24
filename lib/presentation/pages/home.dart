@@ -23,7 +23,7 @@ class _HomeState extends State<Home> {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          toolbarHeight: 80,
+          toolbarHeight: 56,
           title: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -39,7 +39,7 @@ class _HomeState extends State<Home> {
                   const AppBarText(
                     text: 'Проход 456а',
                     font: 'NunitoSansBold',
-                    size: 20,
+                    size: 18,
                     color: Colors.black,
                   ),
                   Padding(
