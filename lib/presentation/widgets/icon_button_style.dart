@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:neobis_flutter_figma/config/color/color.dart';
+import 'package:neobis_flutter_figma/config/constants/color.dart';
 
 class IconButtonStyle extends StatelessWidget {
   const IconButtonStyle({

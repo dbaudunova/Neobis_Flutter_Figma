@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:neobis_flutter_figma/config/color/color.dart';
+import 'package:neobis_flutter_figma/config/constants/color.dart';
 
 class AmountCard extends StatelessWidget {
   const AmountCard({

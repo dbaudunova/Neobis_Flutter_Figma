@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:neobis_flutter_figma/config/constants/text_styles.dart';
 
 class CategoryCard extends StatelessWidget {
   const CategoryCard({
@@ -29,10 +30,7 @@ class CategoryCard extends StatelessWidget {
               padding: const EdgeInsets.fromLTRB(12, 20, 0, 0),
               child: Text(
                 title,
-                style: const TextStyle(
-                    fontFamily: 'NunitoSansRegular',
-                    fontSize: 14,
-                    color: Colors.black),
+                style: TextStyles.headerStyle,
               ),
             ),
             Row(

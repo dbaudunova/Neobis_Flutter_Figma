@@ -5,10 +5,12 @@ class ChoiceChipStyle extends StatefulWidget {
     super.key,
     required this.text,
     required this.fontSize,
+    required this.spacing,
   });
 
   final List<String> text;
   final double fontSize;
+  final double spacing;
 
   @override
   State<ChoiceChipStyle> createState() => _ChoiceChipStyleState();
@@ -26,7 +28,7 @@ class _ChoiceChipStyleState extends State<ChoiceChipStyle> {
   @override
   Widget build(BuildContext context) {
     return Wrap(
-      spacing: 6,
+      spacing: widget.spacing,
       children: List<Widget>.generate(
         widget.text.length,
             (index) {

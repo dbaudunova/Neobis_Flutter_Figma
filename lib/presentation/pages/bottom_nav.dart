@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:neobis_flutter_figma/domain/model/bottom_nav_item.dart';
 import 'package:neobis_flutter_figma/presentation/pages/product.dart';
 import 'package:neobis_flutter_figma/presentation/pages/shop.dart';
 import 'package:neobis_flutter_figma/presentation/pages/home.dart';
@@ -13,7 +14,7 @@ class BottomNav extends StatefulWidget {
 
 class _BottomNavState extends State<BottomNav> {
   int _selectedIndex = 0;
-  final List<Widget> _children = const [Home(), Product(), Shop()];
+  final _children = const [Home(), Product(), Shop()];
 
   void _onItemTapped(int index) {
     setState(() {
@@ -37,33 +38,29 @@ class _BottomNavState extends State<BottomNav> {
         ),
         currentIndex: _selectedIndex,
         onTap: _onItemTapped,
-        items: <BottomNavigationBarItem>[
-          buildBottomNavigationBarItem('assets/home.svg', 'Главная'),
-          buildBottomNavigationBarItem('assets/cart.svg', 'Товары'),
-          buildBottomNavigationBarItem('assets/pin.svg', 'Магазин'),
-        ],
+        items: BottomNavItem.values.map(_buildBottomNavigationBarItem).toList(),
       ),
     );
   }
 
-  BottomNavigationBarItem buildBottomNavigationBarItem(
-      String svgImage, String label) {
+  BottomNavigationBarItem _buildBottomNavigationBarItem(
+      BottomNavItem item,) {
     return BottomNavigationBarItem(
       activeIcon: SvgPicture.asset(
-        svgImage,
+        item.iconPath,
         colorFilter: const ColorFilter.mode(
           Colors.black,
           BlendMode.srcIn,
         ),
       ),
       icon: SvgPicture.asset(
-        svgImage,
+        item.iconPath,
         colorFilter: const ColorFilter.mode(
           Colors.grey,
           BlendMode.srcIn,
         ),
       ),
-      label: label,
+      label: item.name,
     );
   }
 }
